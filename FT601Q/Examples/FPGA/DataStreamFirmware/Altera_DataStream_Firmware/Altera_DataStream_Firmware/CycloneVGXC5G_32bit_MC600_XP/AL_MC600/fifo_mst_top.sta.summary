@@ -1,0 +1,85 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'fifoClk'
+Slack : -1.358
+TNS   : -21.264
+
+Type  : Slow 1100mV 85C Model Hold 'fifoClk'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'fifoClk'
+Slack : 5.283
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'fifoClk'
+Slack : 0.843
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.849
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'fifoClk'
+Slack : -0.995
+TNS   : -13.226
+
+Type  : Slow 1100mV 0C Model Hold 'fifoClk'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'fifoClk'
+Slack : 5.478
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'fifoClk'
+Slack : 0.723
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.802
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'fifoClk'
+Slack : -0.021
+TNS   : -0.021
+
+Type  : Fast 1100mV 85C Model Hold 'fifoClk'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'fifoClk'
+Slack : 7.244
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'fifoClk'
+Slack : 0.524
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.825
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'fifoClk'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fifoClk'
+Slack : 0.170
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'fifoClk'
+Slack : 7.462
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'fifoClk'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.815
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,775 @@
+Analysis & Synthesis report for mst_bus
+Wed Mar  5 16:38:23 2025
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|nxt_state
+ 10. State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap4
+ 11. State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap3
+ 12. State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap2
+ 13. State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap1
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated
+ 20. Parameter Settings for User Entity Instance: mst_pre_fet:i2_pref
+ 21. Parameter Settings for User Entity Instance: sp_sram_16k36:i6_ram|altsyncram:altsyncram_component
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. Port Connectivity Checks: "mst_data_chk:i3_chk"
+ 24. Port Connectivity Checks: "mst_fifo_io:i0_io"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Mar  5 16:38:23 2025          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; mst_bus                                        ;
+; Top-level Entity Name           ; mst_fifo_top                                   ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 1375                                           ;
+; Total pins                      ; 59                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 589,824                                        ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC5C6F27C6     ;                    ;
+; Top-level entity name                                                           ; mst_fifo_top       ; mst_bus            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; tech/sp_sram_16k36.v             ; yes             ; User Wizard-Generated File   ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/tech/sp_sram_16k36.v   ;         ;
+; rtl/mst_fifo_top.v               ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v     ;         ;
+; rtl/mst_fifo_io.v                ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_io.v      ;         ;
+; rtl/mst_fifo_fsm.v               ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_fsm.v     ;         ;
+; rtl/mst_fifo_ctl.v               ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_ctl.v     ;         ;
+; rtl/mst_data_gen.v               ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_data_gen.v     ;         ;
+; rtl/mst_data_chk.v               ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_data_chk.v     ;         ;
+; rtl/mst_pre_fet.v                ; yes             ; User SystemVerilog HDL File  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                                ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                         ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                                   ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                                                ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                                                                                ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                                                 ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                                                                                    ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                                                                    ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                                                                  ;         ;
+; db/altsyncram_uhm1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/altsyncram_uhm1.tdf ;         ;
+; db/decode_5la.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/decode_5la.tdf      ;         ;
+; db/decode_u0a.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/decode_u0a.tdf      ;         ;
+; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/mux_6hb.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 970       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1322      ;
+;     -- 7 input functions                    ; 14        ;
+;     -- 6 input functions                    ; 427       ;
+;     -- 5 input functions                    ; 131       ;
+;     -- 4 input functions                    ; 109       ;
+;     -- <=3 input functions                  ; 641       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 1375      ;
+;                                             ;           ;
+; I/O pins                                    ; 59        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 589824    ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 1447      ;
+; Total fan-out                               ; 11980     ;
+; Average fan-out                             ; 4.10      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                        ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |mst_fifo_top                             ; 1322 (2)            ; 1375 (0)                  ; 589824            ; 0          ; 59   ; 0            ; |mst_fifo_top                                                                                                        ; mst_fifo_top    ; work         ;
+;    |mst_data_chk:i3_chk|                  ; 222 (222)           ; 132 (132)                 ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_data_chk:i3_chk                                                                                    ; mst_data_chk    ; work         ;
+;    |mst_data_gen:i4_gen|                  ; 256 (256)           ; 128 (128)                 ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_data_gen:i4_gen                                                                                    ; mst_data_gen    ; work         ;
+;    |mst_fifo_ctl:i5_ctl|                  ; 237 (237)           ; 158 (158)                 ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_fifo_ctl:i5_ctl                                                                                    ; mst_fifo_ctl    ; work         ;
+;    |mst_fifo_fsm:i1_fsm|                  ; 458 (458)           ; 357 (357)                 ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_fifo_fsm:i1_fsm                                                                                    ; mst_fifo_fsm    ; work         ;
+;    |mst_fifo_io:i0_io|                    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_fifo_io:i0_io                                                                                      ; mst_fifo_io     ; work         ;
+;    |mst_pre_fet:i2_pref|                  ; 144 (144)           ; 599 (599)                 ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|mst_pre_fet:i2_pref                                                                                    ; mst_pre_fet     ; work         ;
+;    |sp_sram_16k36:i6_ram|                 ; 2 (0)               ; 1 (0)                     ; 589824            ; 0          ; 0    ; 0            ; |mst_fifo_top|sp_sram_16k36:i6_ram                                                                                   ; sp_sram_16k36   ; work         ;
+;       |altsyncram:altsyncram_component|   ; 2 (0)               ; 1 (0)                     ; 589824            ; 0          ; 0    ; 0            ; |mst_fifo_top|sp_sram_16k36:i6_ram|altsyncram:altsyncram_component                                                   ; altsyncram      ; work         ;
+;          |altsyncram_uhm1:auto_generated| ; 2 (0)               ; 1 (1)                     ; 589824            ; 0          ; 0    ; 0            ; |mst_fifo_top|sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated                    ; altsyncram_uhm1 ; work         ;
+;             |decode_5la:decode3|          ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mst_fifo_top|sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated|decode_5la:decode3 ; decode_5la      ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+; Name                                                                                           ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF  ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+; sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16384        ; 36           ; --           ; --           ; 589824 ; None ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|nxt_state                        ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; nxt_state.MTWR ; nxt_state.MDLE ; nxt_state.MTRD ; nxt_state.IDLE ;
++----------------+----------------+----------------+----------------+----------------+
+; nxt_state.IDLE ; 0              ; 0              ; 0              ; 0              ;
+; nxt_state.MTRD ; 0              ; 0              ; 1              ; 1              ;
+; nxt_state.MDLE ; 0              ; 1              ; 0              ; 1              ;
+; nxt_state.MTWR ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap4                        ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; cur_stap4.MTWR ; cur_stap4.MDLE ; cur_stap4.MTRD ; cur_stap4.IDLE ;
++----------------+----------------+----------------+----------------+----------------+
+; cur_stap4.IDLE ; 0              ; 0              ; 0              ; 0              ;
+; cur_stap4.MTRD ; 0              ; 0              ; 1              ; 1              ;
+; cur_stap4.MDLE ; 0              ; 1              ; 0              ; 1              ;
+; cur_stap4.MTWR ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap3                        ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; cur_stap3.MTWR ; cur_stap3.MDLE ; cur_stap3.MTRD ; cur_stap3.IDLE ;
++----------------+----------------+----------------+----------------+----------------+
+; cur_stap3.IDLE ; 0              ; 0              ; 0              ; 0              ;
+; cur_stap3.MTRD ; 0              ; 0              ; 1              ; 1              ;
+; cur_stap3.MDLE ; 0              ; 1              ; 0              ; 1              ;
+; cur_stap3.MTWR ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap2                        ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; cur_stap2.MTWR ; cur_stap2.MDLE ; cur_stap2.MTRD ; cur_stap2.IDLE ;
++----------------+----------------+----------------+----------------+----------------+
+; cur_stap2.IDLE ; 0              ; 0              ; 0              ; 0              ;
+; cur_stap2.MTRD ; 0              ; 0              ; 1              ; 1              ;
+; cur_stap2.MDLE ; 0              ; 1              ; 0              ; 1              ;
+; cur_stap2.MTWR ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap1                        ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; cur_stap1.MTWR ; cur_stap1.MDLE ; cur_stap1.MTRD ; cur_stap1.IDLE ;
++----------------+----------------+----------------+----------------+----------------+
+; cur_stap1.IDLE ; 0              ; 0              ; 0              ; 0              ;
+; cur_stap1.MTRD ; 0              ; 0              ; 1              ; 1              ;
+; cur_stap1.MDLE ; 0              ; 1              ; 0              ; 1              ;
+; cur_stap1.MTWR ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; mst_fifo_fsm:i1_fsm|cur_stap4.MTRD    ; Lost fanout        ;
+; mst_fifo_fsm:i1_fsm|cur_stap3.MTRD    ; Lost fanout        ;
+; mst_fifo_fsm:i1_fsm|cur_stap2.MTRD    ; Lost fanout        ;
+; mst_fifo_fsm:i1_fsm|cur_stap4.MTWR    ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++------------------------------------+--------------------+------------------------------------------------------------------------+
+; Register name                      ; Reason for Removal ; Registers Removed due to This Register                                 ;
++------------------------------------+--------------------+------------------------------------------------------------------------+
+; mst_fifo_fsm:i1_fsm|cur_stap4.MTRD ; Lost Fanouts       ; mst_fifo_fsm:i1_fsm|cur_stap3.MTRD, mst_fifo_fsm:i1_fsm|cur_stap2.MTRD ;
++------------------------------------+--------------------+------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1375  ;
+; Number of registers using Synchronous Clear  ; 312   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1374  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1188  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; mst_fifo_fsm:i1_fsm|wr_n                  ; 27      ;
+; mst_fifo_fsm:i1_fsm|rd_n                  ; 2       ;
+; mst_fifo_fsm:i1_fsm|oe_n                  ; 2       ;
+; mst_fifo_fsm:i1_fsm|rxf_n_p1              ; 9       ;
+; mst_fifo_fsm:i1_fsm|obe[3]                ; 5       ;
+; mst_fifo_fsm:i1_fsm|obe[2]                ; 5       ;
+; mst_fifo_fsm:i1_fsm|obe[1]                ; 5       ;
+; mst_fifo_fsm:i1_fsm|obe[0]                ; 5       ;
+; mst_fifo_fsm:i1_fsm|rxf_n_p2              ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p2[0]        ; 4       ;
+; mst_fifo_fsm:i1_fsm|txe_n_p1              ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p2[1]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p2[2]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p2[3]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p4           ; 1       ;
+; mst_fifo_fsm:i1_fsm|odata[0]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|be_oe_n               ; 29      ;
+; mst_fifo_fsm:i1_fsm|odata[1]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[2]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[3]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[4]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[5]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[6]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[7]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[8]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|dt_oe_n               ; 9       ;
+; mst_fifo_fsm:i1_fsm|odata[9]              ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[10]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[11]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[12]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[13]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[14]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[15]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[16]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[17]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[18]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[19]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[20]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[21]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[22]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[23]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[24]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[25]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[26]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[27]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[28]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[29]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[30]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|odata[31]             ; 3       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p2[0]        ; 3       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p2[1]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p2[2]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p2[3]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|irxf_n[0]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|irxf_n[1]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|irxf_n[2]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|irxf_n[3]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|itxe_n[0]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|itxe_n[1]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|itxe_n[2]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|itxe_n[3]             ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p1[0]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p1[1]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p1[2]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p1[3]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_wr_n_p3           ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p1[0]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p1[1]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p1[2]        ; 1       ;
+; mst_fifo_fsm:i1_fsm|mst_rd_n_p1[3]        ; 1       ;
+; mst_data_gen:i4_gen|ch0_dat[0]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[0]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[0]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[0]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[1]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[1]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[1]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[1]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[2]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[2]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[2]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[2]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[3]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[3]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[3]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[3]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[4]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[4]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[4]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[4]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[5]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[5]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[5]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[5]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[6]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[6]            ; 2       ;
+; mst_data_gen:i4_gen|ch2_dat[6]            ; 2       ;
+; mst_data_gen:i4_gen|ch3_dat[6]            ; 2       ;
+; mst_data_gen:i4_gen|ch0_dat[7]            ; 2       ;
+; mst_data_gen:i4_gen|ch1_dat[7]            ; 2       ;
+; Total number of inverted registers = 198* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|ichannel[1]   ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|remain[3][19] ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|remain[2][13] ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|remain[1][11] ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|remain[0][16] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |mst_fifo_top|mst_pre_fet:i2_pref|pref_len1[1]  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |mst_fifo_top|mst_pre_fet:i2_pref|pref_len2[0]  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |mst_fifo_top|mst_pre_fet:i2_pref|pref_len3[1]  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |mst_fifo_top|mst_pre_fet:i2_pref|pref_len0[1]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|oe_n          ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 120 LEs              ; 8 LEs                  ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|odata[8]      ;
+; 26:1               ; 25 bits   ; 425 LEs       ; 400 LEs              ; 25 LEs                 ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|obe[0]        ;
+; 26:1               ; 3 bits    ; 51 LEs        ; 48 LEs               ; 3 LEs                  ; Yes        ; |mst_fifo_top|mst_fifo_fsm:i1_fsm|odata[0]      ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |mst_fifo_top|mst_pre_fet:i2_pref|Mux0          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |mst_fifo_top|mst_fifo_ctl:i5_ctl|mem_a[13]     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |mst_fifo_top|mst_pre_fet:i2_pref|prefdin[35]   ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |mst_fifo_top|mst_pre_fet:i2_pref|prefdin[14]   ;
+; 10:1               ; 12 bits   ; 72 LEs        ; 60 LEs               ; 12 LEs                 ; No         ; |mst_fifo_top|mst_fifo_ctl:i5_ctl|mem_a[11]     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Source assignments for sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                           ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                            ;
++---------------------------------+--------------------+------+----------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mst_pre_fet:i2_pref ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; ADDRBIT        ; 2     ; Signed Integer                          ;
+; LENGTH         ; 4     ; Signed Integer                          ;
+; WIDTH          ; 36    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sp_sram_16k36:i6_ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------+
+; Parameter Name                     ; Value                ; Type                                  ;
++------------------------------------+----------------------+---------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                               ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                               ;
+; WIDTH_A                            ; 36                   ; Signed Integer                        ;
+; WIDTHAD_A                          ; 14                   ; Signed Integer                        ;
+; NUMWORDS_A                         ; 16384                ; Signed Integer                        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                               ;
+; WIDTH_B                            ; 1                    ; Untyped                               ;
+; WIDTHAD_B                          ; 1                    ; Untyped                               ;
+; NUMWORDS_B                         ; 1                    ; Untyped                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                               ;
+; BYTE_SIZE                          ; 8                    ; Untyped                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                               ;
+; INIT_FILE                          ; UNUSED               ; Untyped                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                               ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                               ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                               ;
+; CBXI_PARAMETER                     ; altsyncram_uhm1      ; Untyped                               ;
++------------------------------------+----------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                 ;
++-------------------------------------------+------------------------------------------------------+
+; Name                                      ; Value                                                ;
++-------------------------------------------+------------------------------------------------------+
+; Number of entity instances                ; 1                                                    ;
+; Entity Instance                           ; sp_sram_16k36:i6_ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                          ;
+;     -- WIDTH_A                            ; 36                                                   ;
+;     -- NUMWORDS_A                         ; 16384                                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 1                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ;
++-------------------------------------------+------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "mst_data_chk:i3_chk" ;
++-------+-------+----------+----------------------+
+; Port  ; Type  ; Severity ; Details              ;
++-------+-------+----------+----------------------+
+; bus16 ; Input ; Info     ; Stuck at GND         ;
++-------+-------+----------+----------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "mst_fifo_io:i0_io"          ;
++-----------+--------+----------+------------------------+
+; Port      ; Type   ; Severity ; Details                ;
++-----------+--------+----------+------------------------+
+; MST_RD_N  ; Input  ; Info     ; Stuck at GND           ;
+; MST_WR_N  ; Input  ; Info     ; Stuck at GND           ;
+; debug_sig ; Output ; Info     ; Explicitly unconnected ;
++-----------+--------+----------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 1375                        ;
+;     CLR               ; 146                         ;
+;     CLR SCLR          ; 40                          ;
+;     ENA CLR           ; 916                         ;
+;     ENA CLR SCLR      ; 272                         ;
+;     plain             ; 1                           ;
+; arriav_io_obuf        ; 36                          ;
+; arriav_lcell_comb     ; 1327                        ;
+;     arith             ; 402                         ;
+;         1 data inputs ; 344                         ;
+;         2 data inputs ; 8                           ;
+;         4 data inputs ; 50                          ;
+;     extend            ; 14                          ;
+;         7 data inputs ; 14                          ;
+;     normal            ; 911                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 182                         ;
+;         2 data inputs ; 37                          ;
+;         3 data inputs ; 73                          ;
+;         4 data inputs ; 59                          ;
+;         5 data inputs ; 131                         ;
+;         6 data inputs ; 427                         ;
+; boundary_port         ; 59                          ;
+; stratixv_ram_block    ; 72                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.30                        ;
+; Average LUT depth     ; 2.94                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Wed Mar  5 16:38:13 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mst_bus -c mst_bus
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tech/sp_sram_16k36.v
+    Info (12023): Found entity 1: sp_sram_16k36 File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/tech/sp_sram_16k36.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_fifo_top.v
+    Info (12023): Found entity 1: mst_fifo_top File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_fifo_io.v
+    Info (12023): Found entity 1: mst_fifo_io File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_io.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_fifo_fsm.v
+    Info (12023): Found entity 1: mst_fifo_fsm File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_fsm.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_fifo_ctl.v
+    Info (12023): Found entity 1: mst_fifo_ctl File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_ctl.v Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_data_gen.v
+    Info (12023): Found entity 1: mst_data_gen File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_data_gen.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_data_chk.v
+    Info (12023): Found entity 1: mst_data_chk File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_data_chk.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/mst_pre_fet.v
+    Info (12023): Found entity 1: mst_pre_fet File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 10
+Info (12127): Elaborating entity "mst_fifo_top" for the top level hierarchy
+Info (12128): Elaborating entity "mst_fifo_io" for hierarchy "mst_fifo_io:i0_io" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 122
+Info (12128): Elaborating entity "mst_fifo_fsm" for hierarchy "mst_fifo_fsm:i1_fsm" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 200
+Info (12128): Elaborating entity "mst_pre_fet" for hierarchy "mst_pre_fet:i2_pref" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 228
+Warning (10240): Verilog HDL Always Construct warning at mst_pre_fet.v(139): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 139
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(180): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 180
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(186): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 186
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(197): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 197
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(203): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 203
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(214): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 214
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(220): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 220
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(231): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 231
+Info (10264): Verilog HDL Case Statement information at mst_pre_fet.v(237): all case item expressions in this case statement are onehot File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_pre_fet.v Line: 237
+Info (12128): Elaborating entity "mst_data_chk" for hierarchy "mst_data_chk:i3_chk" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 245
+Info (12128): Elaborating entity "mst_data_gen" for hierarchy "mst_data_gen:i4_gen" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 262
+Info (12128): Elaborating entity "mst_fifo_ctl" for hierarchy "mst_fifo_ctl:i5_ctl" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 287
+Info (12128): Elaborating entity "sp_sram_16k36" for hierarchy "sp_sram_16k36:i6_ram" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 296
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/tech/sp_sram_16k36.v Line: 86
+Info (12130): Elaborated megafunction instantiation "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/tech/sp_sram_16k36.v Line: 86
+Info (12133): Instantiated megafunction "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/tech/sp_sram_16k36.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "16384"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "14"
+    Info (12134): Parameter "width_a" = "36"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uhm1.tdf
+    Info (12023): Found entity 1: altsyncram_uhm1 File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/altsyncram_uhm1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_uhm1" for hierarchy "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5la.tdf
+    Info (12023): Found entity 1: decode_5la File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/decode_5la.tdf Line: 23
+Info (12128): Elaborating entity "decode_5la" for hierarchy "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated|decode_5la:decode3" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/altsyncram_uhm1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_u0a.tdf
+    Info (12023): Found entity 1: decode_u0a File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/decode_u0a.tdf Line: 23
+Info (12128): Elaborating entity "decode_u0a" for hierarchy "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated|decode_u0a:rden_decode" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/altsyncram_uhm1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
+    Info (12023): Found entity 1: mux_6hb File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/mux_6hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_6hb" for hierarchy "sp_sram_16k36:i6_ram|altsyncram:altsyncram_component|altsyncram_uhm1:auto_generated|mux_6hb:mux2" File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/db/altsyncram_uhm1.tdf Line: 46
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "SIWU_N" is stuck at VCC File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 27
+    Warning (13410): Pin "debug_sig[1]" is stuck at VCC File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 31
+    Warning (13410): Pin "debug_sig[2]" is stuck at GND File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 31
+    Warning (13410): Pin "debug_sig[3]" is stuck at VCC File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Examples/FPGA/MasterFIFO32_firmware/cyclonev_mst_fifo32_1.2/cyclonev_mst_fifo32_1.2/rtl/mst_fifo_top.v Line: 31
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2284 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21060): Implemented 36 bidirectional pins
+    Info (21061): Implemented 2153 logic cells
+    Info (21064): Implemented 72 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4881 megabytes
+    Info: Processing ended: Wed Mar  5 16:38:23 2025
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+
+

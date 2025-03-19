@@ -1,0 +1,35 @@
+
+State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|nxt_state
+Name nxt_state.MTWR nxt_state.MDLE nxt_state.MTRD nxt_state.IDLE 
+nxt_state.IDLE 0 0 0 0 
+nxt_state.MTRD 0 0 1 1 
+nxt_state.MDLE 0 1 0 1 
+nxt_state.MTWR 1 0 0 1 
+
+State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap4
+Name cur_stap4.MTWR cur_stap4.MDLE cur_stap4.MTRD cur_stap4.IDLE 
+cur_stap4.IDLE 0 0 0 0 
+cur_stap4.MTRD 0 0 1 1 
+cur_stap4.MDLE 0 1 0 1 
+cur_stap4.MTWR 1 0 0 1 
+
+State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap3
+Name cur_stap3.MTWR cur_stap3.MDLE cur_stap3.MTRD cur_stap3.IDLE 
+cur_stap3.IDLE 0 0 0 0 
+cur_stap3.MTRD 0 0 1 1 
+cur_stap3.MDLE 0 1 0 1 
+cur_stap3.MTWR 1 0 0 1 
+
+State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap2
+Name cur_stap2.MTWR cur_stap2.MDLE cur_stap2.MTRD cur_stap2.IDLE 
+cur_stap2.IDLE 0 0 0 0 
+cur_stap2.MTRD 0 0 1 1 
+cur_stap2.MDLE 0 1 0 1 
+cur_stap2.MTWR 1 0 0 1 
+
+State Machine - |mst_fifo_top|mst_fifo_fsm:i1_fsm|cur_stap1
+Name cur_stap1.MTWR cur_stap1.MDLE cur_stap1.MTRD cur_stap1.IDLE 
+cur_stap1.IDLE 0 0 0 0 
+cur_stap1.MTRD 0 0 1 1 
+cur_stap1.MDLE 0 1 0 1 
+cur_stap1.MTWR 1 0 0 1 

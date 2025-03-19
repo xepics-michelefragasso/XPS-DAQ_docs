@@ -1,0 +1,53 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'fifoClk'
+Slack : -0.133
+TNS   : -0.795
+
+Type  : Slow 1100mV 85C Model Hold 'fifoClk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.850
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'fifoClk'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fifoClk'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.801
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'fifoClk'
+Slack : 0.922
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fifoClk'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.824
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'fifoClk'
+Slack : 1.027
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fifoClk'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fifoClk'
+Slack : 3.814
+TNS   : 0.000
+
+------------------------------------------------------------

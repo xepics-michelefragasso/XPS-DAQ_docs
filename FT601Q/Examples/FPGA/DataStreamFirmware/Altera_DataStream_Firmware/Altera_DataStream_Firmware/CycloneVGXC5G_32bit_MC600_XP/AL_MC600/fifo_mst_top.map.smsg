@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at fifo_ep_mst.v(24): object "EP_NUM" differs only in case from object "ep_num" in the same scope File: C:/Users/michele.fragasso/Desktop/doc/FT601Q/Altera_DataStream_Firmware/Altera_DataStream_Firmware/CycloneVGXC5G_32bit_MC600_XP/RTL/fifo_ep_mst.v Line: 24

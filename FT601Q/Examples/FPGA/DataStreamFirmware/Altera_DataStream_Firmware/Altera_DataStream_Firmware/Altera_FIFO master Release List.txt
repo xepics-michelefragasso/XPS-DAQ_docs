@@ -1,0 +1,29 @@
+Altera CycloneVGXC5G master Release List:
+
+1.CycloneVGXC5G_16bit_MC245    ///For data loopback demo, FT600 device, 245 FIFO Mode
+
+2.CycloneVGXC5G_32bit_MC245    ///For data loopback demo, FT601 device, 245 FIFO Mode
+
+3.CycloneVGXC5G_32bit_MC600    ///For data loopback demo, FT601 device, Multi-channel FIFO Mode(600 Mode)
+
+------------------------------
+
+4.CycloneVGXC5G_16bit_MC245_XP    ///For data streamer demo, FT600 device, 245 FIFO Mode
+
+5.CycloneVGXC5G_32bit_MC245_XP    ///For data streamer demo, FT601 device, 245 FIFO Mode
+
+6.CycloneVGXC5G_32bit_MC600_XP    ///For data streamer demo, FT601 device, Multi-channel FIFO Mode(600 Mode)
+
+------------------------------
+
+Revision: 1.1 
+Date:21-Oct-2015
+
+Revision: 1.11
+Date:22-Oct-2015
+1.Add in MC245-16bit/32bit data streamer demo
+2.Add in MC600-32bit data streamer demo
+
+
+
+                                                                                                                                                                                   
